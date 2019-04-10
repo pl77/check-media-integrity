@@ -249,8 +249,8 @@ def ffmpeg_check(filename, error_detect='default', threads=0):
 
 
 def save_csv(filename, data):
-    with open(filename, mode='w') as out_file:
-        out_writer = csv.writer(out_file, delimiter='\t', quotechar='"', quoting=csv.QUOTE_NONE)
+    with open(filename, mode='w', encoding='UTF-8') as out_file:
+        out_writer = csv.writer(out_file, delimiter='\t', quotechar='"', quoting=csv.QUOTE_NONE, escapechar='\\')
         for entry in data:
             out_writer.writerow(list(entry))
 
